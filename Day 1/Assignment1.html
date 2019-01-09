@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head></head>
+
+<body>
+    <script>
+
+        // Question 1 - Working with variables
+        var name = "John";
+        var admin = name;
+        alert(admin); // John
+
+        // Question 2 - Giving the right name
+        let ourPlanetName = "Earth";
+        let currentVisitorName = "Ram";
+
+        // Question 3 - What is the output of the script?
+        {
+            let name = "Ilya";
+            alert(`hello ${1}`); // hello 1
+            alert(`hello ${"name"}`); // hello name
+            alert(`hello ${name}`); // hello Ilya
+        }
+
+        // Question 4 - What are results of these expressions?
+        alert("" + 1 + 0); // 10
+        alert("" - 1 + 0); //  -1
+        alert(true + false); // 1
+        alert(6 / "3"); // 2
+        alert("2" * "3"); // 6
+        alert(4 + 5 + "px"); // 9px
+        alert("$" + 4 + 5); // $45
+        alert("4" - 2); // 2
+        alert("4px" - 2); // NaN
+        alert(7 / 0); // Infinity
+        alert(" -9\n" + 5); // -9(newline)5
+        alert(" -9\t" - 5); // -14 
+        alert(null + 1); // 1
+        alert(undefined + 1); // NaN
+
+
+        // Question 5 - The postfix and prefix forms
+        {
+            let a = 1, b = 1;
+            let c = ++a + ++a - a++;
+            let d = b++ + ++b - b++;
+
+            alert(`c : ${c}`); // 2
+            alert(`d : ${d}`); // 1
+        }
+
+        // Question 6 - What are the values of a and x after the code below?
+        {
+            let a = 2;
+            let x = 1 + (a *= 2);
+
+            alert(`a : ${a}`); // 4
+            alert(`x : ${x}`); // 5
+        }
+
+        // Question 7 - What will be the result for expressions?
+        alert(5 > 4); // true
+        alert("apple" > "pineapple"); // false
+        alert("2" > "12"); // true
+
+        // Question 8 - What is this code going to show?
+        let fruits = ["Apples", "Pear", "Orange"];
+        let shoppingCart = fruits;
+        shoppingCart.push("Banana");
+        alert(fruits.length); // 4
+
+        // Question 9 - Array operations.
+        let styles = ["Jazz", "Blues"];
+        styles.push("Rock-n-Roll");
+        styles[parseInt(styles.length / 2)] = "Classics"
+        alert(styles.shift());
+        styles.unshift(["Rap", "Reggae"]);
+
+    </script>
+</body>
+
+</html>
