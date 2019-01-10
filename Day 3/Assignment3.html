@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head></head>
+<body>
+    <script>
+
+        // Question 1. Hello, object
+        {
+            var user = {};
+            user["name"] = "John";
+            user["surname"] = "Smith";
+            user["name"] = "Pete";
+            delete user.name;
+        }
+
+        // Question 2. Check for emptiness
+        let schedule = {};
+        alert(isEmpty(schedule)); // true
+        schedule["8:30"] = "get up";
+        alert(isEmpty(schedule)); // false
+
+        function isEmpty(obj) {
+            for (let prop in obj) {
+                return false;
+            }
+            return true;
+        }
+
+        // Question 3. Constant objects?
+        {
+            const user = {
+                name: "John"
+            };
+            // does it work?
+            user.name = "Pete";
+
+            // Yes. It'll. We can manipulate the props of an obj assigned to a const variable.
+            // However we can't reassign new object or value to a const variable.
+            // Below commented line of code will raise an error
+            // user = { name: "Ram" };
+        }
+
+        // Question 4. Sum object properties
+        let salaries = {
+            John: 100,
+            Ann: 160,
+            Pete: 130
+        }
+
+        var sum = 0;
+        for (let salary in salaries) {
+            sum += salaries[salary];
+        }
+        alert(`Sum of salaries is ${sum}`);
+
+        // Question 5. Multiply numeric properties by 2
+        let menu = {
+            width: 200,
+            height: 300,
+            title: "My menu"
+        };
+
+        alert(`before the call: ${JSON.stringify(menu)}`);
+        multiplyNumeric(menu);
+        alert(`after the call: ${JSON.stringify(menu)}`);
+
+        function multiplyNumeric(menu) {
+            for (let item in menu) {
+                if (typeof menu[item] == "number") {
+                    menu[item] *= 2;
+                }
+            }
+        }
+
+        // Question 6. Create an object calculator with three methods:
+        let calculator = {
+            read: () => {
+                calculator["value1"] = parseFloat(prompt("Enter first value:"));
+                calculator["value2"] = parseFloat(prompt("Enter second value:"));
+            },
+
+            sum: () => {
+                let result = 0;
+                for (let prop in calculator) {
+                    if (prop == "value1" || prop == "value2") {
+                        result += calculator[prop];
+                    }
+                }
+                return result;
+            },
+
+            mul: () => {
+                let result = 1;
+                for (let prop in calculator) {
+                    if (prop == "value1" || prop == "value2") {
+                        result *= calculator[prop];
+                    }
+                }
+                return result;
+            }
+
+        };
+
+        calculator.read();
+        alert(`Summation: ${calculator.sum()}`);
+        alert(`Multiplication: ${calculator.mul()}`);
+
+        // Question 7. There’s a ladder object that allows to go up and down:
+        let ladder = {
+            step: 0,
+            up() {
+                this.step++;
+                return this;
+            },
+            down() {
+                this.step--;
+                return this;
+            },
+            showStep: function () { // shows the current step
+                alert(this.step);
+                return this;
+            }
+        };
+
+        ladder.up();
+        ladder.up();
+        ladder.down();
+        ladder.showStep(); // 1
+
+        ladder.up().up().down().showStep(); // 2
+
+
+    </script>
+</body>
+
+</html>
